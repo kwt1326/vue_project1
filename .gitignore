@@ -26,3 +26,4 @@ yarn-error.log*
 /public/images
 /migrations
 /config
+/dist

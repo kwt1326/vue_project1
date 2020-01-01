@@ -1,3 +1,4 @@
 import Vue from 'vue';
+import router from './views/pages/router'
 
-new Vue().$mount('#root');
+new Vue(router).$mount('#root');
