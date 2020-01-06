@@ -18,8 +18,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.vue$/,
+        test: /\.vue$/, 
         loader: 'vue-loader'
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        loader: ['style-loader','css-loader','sass-loader']
       },
     ]
   },
