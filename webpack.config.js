@@ -1,5 +1,7 @@
 const path = require('path');
+const webpack = require('webpack');
 const vueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: "development",
@@ -7,6 +9,8 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, './public'),
     compress: true,
+    open: true,
+    hot: true,
     port: 8080
   },
   resolve: {
@@ -25,10 +29,18 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         loader: ['style-loader','css-loader','sass-loader']
       },
+      {
+        test: /\.js$/,
+        use: 'babel-loader'
+      },
     ]
   },
   plugins: [
       new vueLoaderPlugin(),
+      new HtmlWebpackPlugin({
+        template: './public/index.html',
+      }),
+      new webpack.HotModuleReplacementPlugin(),
   ],
   output: {
     filename: '[name].js',

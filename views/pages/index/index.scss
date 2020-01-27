@@ -1,0 +1,24 @@
+@import "../../assets/styles/variables.scss";
+
+.container {
+  @include flex_direction(column);
+  @include justify_content(center);
+  @include align_items(center);
+  width: 100%;
+  height: 100%;
+  padding: 30px 0px;
+  .page_list {
+    @include flex_direction(column);
+    @include justify_content(center);  
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+    padding: 30px;
+    div {
+      cursor: pointer;
+      border: 1px solid #aaaaaa;
+      border-radius: 5px;
+      padding: 20px;
+      margin: 20px;  
+    }
+  }
+}

@@ -1,0 +1,119 @@
+// common color
+$black: #333333;
+$white: #ffffff;
+$error: #fd3b31;
+$warning: #ffc021;
+$active: #3897f0;
+$success: #40bf5e;
+
+//font
+$font-text: 'Noto Sans KR', sans-serif;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// font size
+$h1-font-size: 30px;
+$h2-font-size: 24px;
+$h3-font-size: 18px;
+$h4-font-size: 16px;
+$h5-font-size: 14px;
+$h6-font-size: 12px;
+$xlarge-font-size: 18px;
+$large-font-size: 16px;
+$normal-font-size: 14px;
+$small-font-size: 12px;
+
+// screen size
+$mobile-screen-size: 640px;
+$tablet-screen-size: 1000px;
+$desktop-screen-size: 1080px;
+
+// content padding
+$content-padding: 0 20px;
+
+// mobile font size
+$mobile-h1-font-size: 30px;
+$mobile-h2-font-size: 24px;
+$mobile-h3-font-size: 18px;
+$mobile-h4-font-size: 16px;
+$mobile-h5-font-size: 14px;
+$mobile-h6-font-size: 12px;
+$mobile-xlarge-font-size: 18px;
+$mobile-large-font-size: 16px;
+$mobile-normal-font-size: 14px;
+$mobile-small-font-size: 12px;
+$mobile-xsmall-font-size: 10px;
+$mobile-large-font-size: 16px;
+
+@mixin vendor_prefix($name, $argument) {
+	-webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+	#{$name}: #{$argument};
+}
+
+@mixin flex() {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: -o-flex;
+	display: flex;
+}
+
+@mixin center_mid() {
+	@include flex();
+	@include vendor_prefix(justify-content, center);
+	@include vendor_prefix(align-items, center);
+}
+
+@mixin align_items($value) {
+	@include flex();
+	@include vendor_prefix(align-items, $value);
+}
+
+@mixin justify_content($value) {
+  @include flex();
+  @include vendor_prefix(justify-content, $value);
+}
+
+@mixin flex_direction($value) {
+	@include flex();
+	@include vendor_prefix(flex-direction, $value);
+}
+
+/* 1 line ellipse, required add width */ 
+@mixin ellipse() { 
+  display: inline-block; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}
+
+@mixin word_break($width: auto, $height: auto) {
+	width: $width;
+	height: $height;
+	@include vendor_prefix(word-break, keep-all);
+	@include vendor_prefix(word-wrap, break-word);
+}
+
+@mixin box_sizing($value) {
+	@include vendor_prefix(box-sizing, $value);
+}
+
+:export {
+	black: $black;
+	white: $white;
+	smallFontSize: $small-font-size;
+	normalFontSize: $normal-font-size;
+	largeFontSize: $large-font-size;
+	xlargeFontSize: $xlarge-font-size;
+	fontWeightRegular: $font-weight-regular;
+	fontWeightMedium: $font-weight-medium;
+	fontWeightbold: $font-weight-bold;
+	error: $error;
+	warning: $warning;
+	active: $active;
+	success: $success;
+}
